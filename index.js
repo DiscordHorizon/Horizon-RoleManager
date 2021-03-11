@@ -5,6 +5,17 @@ const bot = new Discord.Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 
+bot.on("ready", async () => {
+    await bot.user.setPresence({
+        activity: {
+            name: `Gerenciando cargos do servidor!!`,
+            type: 1,
+            url: "https://twitch.tv/bravanzin",
+        },
+    });
+    console.log("[Bot] Connected");
+});
+
 //* reaction add role check
 bot.on("messageReactionAdd", async (reaction, user) => {
     const id = reaction.message.id;
