@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const { discord, messages } = require("./utils/horizonUtils");
+const { voiceRole } = require("./include/voice");
 
-require('./server');
+require("./server");
 
 const bot = new Discord.Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
@@ -16,6 +17,11 @@ bot.on("ready", async () => {
         },
     });
     console.log("[Bot] Connected");
+});
+
+//* add voice role
+bot.on("voiceStateUpdate", (oldState, newState) => {
+    voiceRole(oldState, newState);
 });
 
 //* reaction add role check
