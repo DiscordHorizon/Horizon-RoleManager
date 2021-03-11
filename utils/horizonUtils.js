@@ -5,6 +5,7 @@ try {
     config = null;
 }
 
+exports.discord = config ? config.discord : process.env.DISCORD;
 exports.messages = {
     rules: config ? config.rules : process.env.RULES,
     tasks: config ? config.tasks : process.env.TASKS,
