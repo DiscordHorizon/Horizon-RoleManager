@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const { discord, messages } = require("./utils/horizonUtils");
 
+require('./server');
+
 const bot = new Discord.Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
